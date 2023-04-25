@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		..\.github\workflows\dotnet.yml = ..\.github\workflows\dotnet.yml
 	EndProjectSection
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Solutions", "Solutions\Solutions.fsproj", "{B49BB0FC-6EBB-40FE-BA9D-E268DD06D042}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "StylishFSharpSolutions", "StylishFSharpSolutions.fsproj", "{B49BB0FC-6EBB-40FE-BA9D-E268DD06D042}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
