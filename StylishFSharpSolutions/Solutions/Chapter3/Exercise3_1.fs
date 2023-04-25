@@ -1,10 +1,11 @@
-﻿namespace Solutions.Chapter3
+﻿namespace StylishFSharpSolutions.Chapter3
 
 module Exercise3_1 =
     type Delivery =
         | AsBilling
         | Physical of string
         | Download
+        | ClickAndCollect of StoreId : int
 
     type BillingDetails = {
         name : string
@@ -18,10 +19,15 @@ module Exercise3_1 =
         | Physical address -> 
             address |> Some
         | Download -> None
+        | ClickAndCollect _ -> None
         |> Option.map (fun address -> 
             sprintf "%s\n%s" billingDetails.name address)
 
     let deliveryLabels (billingDetails : BillingDetails seq) =
+        billingDetails
+        |> Seq.choose tryDeliveryLabel
+
+    let collectionsFor (stroreId : int) (billingDetails : BillingDetails seq) =
         billingDetails
         |> Seq.choose tryDeliveryLabel
 
