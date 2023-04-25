@@ -6,10 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Chapter2\Exercise2_1.fs" />
-    <Compile Include="Chapter2\Exercise2_2.fs" />
-    <Compile Include="Chapter3\Exercise3_1.fs" />
-    <Compile Include="Chapter3\Exercise3_2.fs" />
+    <Compile Include="Chapter02\Exercise2_1.fs" />
+    <Compile Include="Chapter02\Exercise2_2.fs" />
+    <Compile Include="Chapter03\Exercise3_1.fs" />
+    <Compile Include="Chapter03\Exercise3_2.fs" />
+    <Compile Include="Chapter04\Houses.fs" />
+    <None Include="Chapter04\Exercise04_01.fsx" />
   </ItemGroup>
 
   <ItemGroup>

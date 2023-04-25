@@ -1,4 +1,4 @@
-﻿namespace StylishFSharpSolutions.Chapter3
+﻿namespace StylishFSharpSolutions.Chapter03
 
 module Exercise3_2 =
     type Delivery =

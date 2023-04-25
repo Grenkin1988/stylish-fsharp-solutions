@@ -1,4 +1,4 @@
-﻿namespace StylishFSharpSolutions.Chapter2.Exercise2_2
+﻿namespace StylishFSharpSolutions.Chapter02.Exercise2_2
 
 open NUnit.Framework
 open System
