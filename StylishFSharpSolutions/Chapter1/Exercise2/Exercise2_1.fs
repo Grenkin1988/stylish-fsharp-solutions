@@ -6,7 +6,7 @@ open System
 module MilesYards =
     type MilesYards = private MilesYards of wholeMiles : int * yards : int
 
-    let fromMilesPointYards (milesPointYards: float) : MilesYards =
+    let fromMilesPointYards (milesPointYards : float) : MilesYards =
         if milesPointYards < 0 then
             raise <| ArgumentOutOfRangeException("milesPointYards", "Distance must be >= 0")
         let wholeMiles = milesPointYards |> floor |> int
