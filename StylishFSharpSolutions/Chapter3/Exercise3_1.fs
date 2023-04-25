@@ -39,21 +39,6 @@ module Exercise3_1 =
         billingDetails
         |> Seq.choose (tryCollectionsFor stroreId)
 
-    let myOrder = {
-        name = "Kit Eason"
-        billing = "112 Fibonacci Street\nErehwon\n35813"
-        delivery = AsBilling }
-
-    let hisOrder = {
-        name = "John Doe"
-        billing = "314 Pi Avenue\nErewhon\n15926"
-        delivery = Physical "16 Planck Parkway\nErewhon\n62291" }
-
-    let herOrder = {
-        name = "Jane Smith"
-        billing = "9 Gravity Road\nErewhon\n80665" 
-        delivery = Download }
-
     open NUnit.Framework
 
     [<TestFixture>]
