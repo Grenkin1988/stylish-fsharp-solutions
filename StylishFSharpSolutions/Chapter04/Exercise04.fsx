@@ -26,3 +26,36 @@ module Exercise04 =
             |> Array.choose (fun house ->
                 trySchoolDistance house
                 |> Option.bind (fun d -> Some(house, d)))
+
+    module Exercise04_05 = 
+        let printHouses() =
+            houses 
+            |> Array.filter (fun h -> h.Price > 100_000M)
+            |> Array.iter (fun h -> printfn "House by address: %s costs: %f" h.Address h.Price)
+
+    module Exercise04_06 = 
+        let printHousesOrdered() =
+            houses 
+            |> Array.filter (fun h -> h.Price > 100_000M)
+            |> Array.sortByDescending (fun h -> h.Price)
+            |> Array.iter (fun h -> printfn "House by address: %s costs: %f" h.Address h.Price)
+
+    module Exercise04_07 = 
+        let averagePrice =
+            houses
+            |> Array.filter (fun h -> h.Price > 200_000M)
+            |> Array.averageBy (fun h -> h.Price)
+
+    module Exercise04_08 = 
+        let spesificHouse =
+            houses
+            |> Array.choose (fun house ->
+                trySchoolDistance house
+                |> Option.bind (fun d -> Some(house, d)))
+            |> Array.find(fun (h,_) -> h.Price < 100_000M )
+
+    module Exercise04_09 = 
+        let grouped =
+            houses
+            |> Array.groupBy (fun h -> priceBand h.Price)
+            |> Array.map (fun (band, houses) -> (band, Array.sortBy (fun h -> h.Price) houses ))
