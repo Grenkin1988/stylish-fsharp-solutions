@@ -41,13 +41,13 @@ module Exercise04 =
             |> Array.iter (fun h -> printfn "House by address: %s costs: %f" h.Address h.Price)
 
     module Exercise04_07 = 
-        let averagePrice =
+        let averageOver200K =
             houses
             |> Array.filter (fun h -> h.Price > 200_000M)
             |> Array.averageBy (fun h -> h.Price)
 
     module Exercise04_08 = 
-        let spesificHouse =
+        let cheapHouseWithKnownSchoolDistance =
             houses
             |> Array.choose (fun house ->
                 trySchoolDistance house
@@ -55,7 +55,26 @@ module Exercise04 =
             |> Array.find(fun (h,_) -> h.Price < 100_000M )
 
     module Exercise04_09 = 
-        let grouped =
+        let housesByBand =
             houses
             |> Array.groupBy (fun h -> priceBand h.Price)
             |> Array.map (fun (band, houses) -> (band, Array.sortBy (fun h -> h.Price) houses ))
+
+    module Exercise04_10 = 
+        let inline tryAverageBy projection array =
+            match array with
+            | [||] -> None
+            | array -> Array.averageBy projection array |> Some
+
+        let avarage =
+            houses
+            |> Array.filter (fun h -> h.Price > 200_000M)
+            |> tryAverageBy (fun h -> h.Price)
+
+    module Exercise04_11 = 
+        let cheapHouseWithKnownSchoolDistance =
+            houses
+            |> Array.choose (fun house ->
+                trySchoolDistance house
+                |> Option.bind (fun d -> Some(house, d)))
+            |> Array.tryFind(fun (h,_) -> h.Price < 100_000M )
