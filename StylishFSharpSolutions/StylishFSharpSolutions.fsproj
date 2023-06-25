@@ -15,7 +15,8 @@
     <Compile Include="Chapter05\Exercise5_1.fs" />
     <Compile Include="Chapter05\Exercise5_2.fs" />
     <Compile Include="Chapter06\Exercise6_1.fs" />
-    <Compile Include="Chapter06\Exercise6_1 - Copy.fs" />
+    <Compile Include="Chapter06\Exercise6_2.fs" />
+    <Compile Include="Chapter06\Exercise6_3.fs" />
   </ItemGroup>
 
   <ItemGroup>
