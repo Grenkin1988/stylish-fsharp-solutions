@@ -21,6 +21,9 @@
     <Compile Include="Chapter07\Exercise7_3.fs" />
     <Compile Include="Chapter07\Exercise7_4.fs" />
     <Compile Include="Chapter08\Exercise8_1.fs" />
+    <Compile Include="Chapter08\Exercise8_2.fs" />
+    <Compile Include="Chapter08\Exercise8_3.fs" />
+    <Compile Include="Chapter08\Exercise8_4.fs" />
     <Compile Include="Chapter09\Exercise9_1.fs" />
     <Compile Include="Chapter10\Exercise10_1.fs" />
     <Compile Include="Chapter11\Exercise11_1.fs" />
