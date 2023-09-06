@@ -1,0 +1,1 @@
+module StylishFSharpSolutions.Chapter10.Exercise10_1
