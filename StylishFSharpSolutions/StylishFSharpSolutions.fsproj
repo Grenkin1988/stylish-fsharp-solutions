@@ -31,6 +31,7 @@
     <Compile Include="Chapter10\Exercise10_1.fs" />
     <Compile Include="Chapter10\Exercise10_2.fs" />
     <Compile Include="Chapter11\Exercise11_1.fs" />
+    <Compile Include="Chapter11\Exercise11_2.fs" />
     <Compile Include="Chapter12\Exercise12_1.fs" />
     <Compile Include="Chapter13\Exercise13_1.fs" />
   </ItemGroup>
