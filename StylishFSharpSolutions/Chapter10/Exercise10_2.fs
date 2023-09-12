@@ -1,4 +1,4 @@
-namespace StylishFSharpSolutions.Chapter10.Exercise10_1
+﻿namespace StylishFSharpSolutions.Chapter10.Exercise10_2
 
 open System
 open NUnit.Framework
@@ -20,41 +20,23 @@ module Server =
         }
 
 module Consumer =
-    let GetData (count : int) =
-        let strings = 
-            Array.init count (fun i -> 
-                Server.AsyncGetString i 
-                |> Async.RunSynchronously)
-        strings
-        |> Array.sort
-
-    let AsyncGetData (count : int) =
+    let GetDataAsync (count : int) =
         async {
             let! strings = 
                 Seq.init count (fun i -> Server.AsyncGetString i)
                 |> Async.Parallel
             return (strings |> Array.sort)
-        }
+        } |> Async.StartAsTask
 
 [<TestFixture>]
 module Test =
     [<Test>]
-    let ``Demo`` () =
+    let ``Demo task`` () =
         let sw = System.Diagnostics.Stopwatch()
         sw.Start()
 
-        Consumer.GetData 10
-        |> Array.iter (printfn "%s")
-        printfn "That took %ims" sw.ElapsedMilliseconds
-
-        Assert.Pass()
-
-    [<Test>]
-    let ``Demo async`` () =
-        let sw = System.Diagnostics.Stopwatch()
-        sw.Start()
- 
-        Consumer.AsyncGetData 10 
+        Consumer.GetDataAsync 10
+        |> Async.AwaitTask
         |> Async.RunSynchronously
         |> Array.iter (printfn "%s")
         printfn "That took %ims" sw.ElapsedMilliseconds
