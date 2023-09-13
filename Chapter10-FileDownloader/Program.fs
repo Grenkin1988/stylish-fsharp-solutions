@@ -32,6 +32,7 @@ module Download =
     open System
     open System.IO
     open System.Net
+    open System.Net.Http
     open System.Text.RegularExpressions
     open FSharp.Data
     open FSharpx.Control
@@ -81,15 +82,18 @@ module Download =
             return links
         }
 
+    let private downloadFile (fileUri : Uri) (filePath : string) =
+        use client = new HttpClient()
+        let data = client.GetByteArrayAsync(fileUri) |> Async.AwaitTask |> Async.RunSynchronously
+        File.WriteAllBytes(filePath, data)
+
     let private tryDownload (localPath : string) (fileUri : Uri) =
         let fileName = fileUri.Segments |> Array.last
         Log.yellow (sprintf "%s - starting download" fileName)
         let filePath = Path.Combine(localPath, fileName)
 
-        use client = new WebClient()
-
         try
-            client.DownloadFile(fileUri, filePath)
+            downloadFile fileUri filePath
             Log.green (sprintf "%s - download complete" fileName)
             Outcome.Ok fileName
         with
@@ -97,16 +101,21 @@ module Download =
             Log.red (sprintf "%s - error: %s" fileName e.Message)
             Outcome.Failed fileName
 
+    let private asyncDownloadFile (fileUri : Uri) (filePath : string) =
+        async {
+            use client = new HttpClient()
+            let! data = client.GetByteArrayAsync(fileUri) |> Async.AwaitTask
+            return! File.WriteAllBytesAsync(filePath, data) |> Async.AwaitTask
+        }
+
     let private tryDownloadAsync (localPath : string) (fileUri : Uri) =
         async {
             let fileName = fileUri.Segments |> Array.last
             Log.yellow (sprintf "%s - starting download" fileName)
             let filePath = Path.Combine(localPath, fileName)
 
-            use client = new WebClient()
-
             try
-                do! client.DownloadFileTaskAsync(fileUri, filePath) |> Async.AwaitTask
+                do! asyncDownloadFile fileUri filePath
                 Log.green (sprintf "%s - download complete" fileName)
                 return (Outcome.Ok fileName)
             with
