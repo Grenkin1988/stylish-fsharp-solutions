@@ -16,9 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "StylishFSharpSolutions", "StylishFSharpSolutions.fsproj", "{B49BB0FC-6EBB-40FE-BA9D-E268DD06D042}"
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Chapter10-FileDownloader", "..\Chapter10-FileDownloader\Chapter10-FileDownloader.fsproj", "{E67DEAF1-CB6E-4F12-9B8D-60BF26326E64}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Chapter10-FileDownloader", "Chapter10-FileDownloader\Chapter10-FileDownloader.fsproj", "{E67DEAF1-CB6E-4F12-9B8D-60BF26326E64}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter12-Benchmark", "..\Chapter12-Benchmark\Chapter12-Benchmark.fsproj", "{870AA1FE-7ADE-4C9A-A892-8C50AF362B39}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter12-Benchmark", "Chapter12-Benchmark\Chapter12-Benchmark.fsproj", "{870AA1FE-7ADE-4C9A-A892-8C50AF362B39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
